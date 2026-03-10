@@ -1,9 +1,19 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/state';
+	import { onMount } from 'svelte';
 	import type { PageServerData } from './$types';
 
 	let { data }: { data: PageServerData } = $props();
+
+	onMount(() => {
+		const interval = setInterval(() => {
+			invalidateAll();
+		}, 5000);
+
+		return () => clearInterval(interval);
+	});
 </script>
 
 <div class="mx-auto max-w-2xl p-6">
