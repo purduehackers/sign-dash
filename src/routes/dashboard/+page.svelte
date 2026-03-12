@@ -36,7 +36,7 @@
 		<p class="mb-4 text-sm text-red-600">{page.form.removeError}</p>
 	{/if}
 
-	<h2 class="mb-4 text-lg font-semibold">Devices</h2>
+	<h2 class="mb-4 text-lg font-semibold">Active Signs</h2>
 
 	{#if data.devices.length === 0}
 		<div class="flex items-center gap-2 text-sm text-gray-500">
