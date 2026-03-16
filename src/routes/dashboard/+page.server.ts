@@ -12,7 +12,7 @@ export const load: PageServerLoad = async (event) => {
 	if (!event.locals.user) {
 		return redirect(302, '/');
 	}
-	if ((event.locals.user as Record<string, unknown>).role !== 'Admin') {
+	if ((event.locals.user as Record<string, string>).role?.toLowerCase() !== 'admin') {
 		return redirect(302, '/');
 	}
 
