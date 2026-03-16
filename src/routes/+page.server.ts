@@ -4,7 +4,7 @@ import { auth } from '$lib/server/auth';
 
 export const load: PageServerLoad = async (event) => {
 	if (event.locals.user) {
-		if ((event.locals.user as Record<string, unknown>).role === 'Admin') {
+		if ((event.locals.user as Record<string, string>).role?.toLowerCase() === 'admin') {
 			return redirect(302, '/dashboard');
 		}
 		return { error: 'You do not have permission to access the dashboard.' };
